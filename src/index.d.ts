@@ -17,7 +17,7 @@ import { ListSpacerProps, ListSpacerState } from './ListSpacer';
 import { PillProps, PillsGroupProps } from './Pills';
 import { LargeHeaderProps, LargeHeaderState } from './LargeHeader';
 
-export const Avatar: React.Component<AvatarProps>;
+export const Avatar: React.ComponentType<AvatarProps>;
 
 export const Badge: React.ComponentType<BadgeProps>;
 
