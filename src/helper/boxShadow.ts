@@ -1,4 +1,10 @@
-export default function(x, y, radius, color, opacity) {
+export default function(
+  x: number,
+  y: number,
+  radius: number,
+  color: string,
+  opacity: number,
+) {
   return `
     shadow-opacity: ${opacity};
     shadow-color: ${color};

@@ -1,7 +1,5 @@
-// @flow
-/* eslint-disable import/no-extraneous-dependencies */
 import * as React from 'react';
-import { TextStyle } from 'react-native';
+import { TextStyle, StyleProp } from 'react-native';
 import styled from 'styled-components/native';
 
 const Root = styled.View`
@@ -18,13 +16,17 @@ const Title = styled.Text`
   font-weight: ${props => props.theme.font.headline.fontWeight};
 `;
 
-export type Props = {
-  title: string,
-  titleStyle?: TextStyle,
-  action?: React.ReactNode,
-};
+export interface CardHeaderProps {
+  title: string;
+  titleStyle?: StyleProp<TextStyle>;
+  action?: React.ReactNode;
+}
 
-const CardHeader = ({ title, titleStyle = {}, action }: Props) => (
+const CardHeader: React.SFC<CardHeaderProps> = ({
+  title,
+  titleStyle,
+  action,
+}) => (
   <Root>
     <Title style={titleStyle}>{title}</Title>
     {action && action}

@@ -1,5 +1,3 @@
-// @flow
-/* eslint-disable import/no-extraneous-dependencies */
 import * as React from 'react';
 import styled from 'styled-components/native';
 import {
@@ -15,14 +13,12 @@ const PressOutsideView = styled.View`
   right: 0;
 `;
 
-export type PressOutsideProps = {
-  onPressOutside: () => {},
-} & TouchableWithoutFeedbackProps;
+export interface PressOutsideProps
+  extends TouchableWithoutFeedbackProps {
+  onPressOutside: () => void;
+}
 
 class PressOutside extends React.Component<PressOutsideProps> {
-  static defaultProps = {
-    onPressOutside: () => {},
-  };
   render() {
     return (
       <TouchableWithoutFeedback

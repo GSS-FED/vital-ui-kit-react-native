@@ -1,9 +1,7 @@
-// @flow
-
 import * as React from 'react';
 import { Animated } from 'react-native';
 import styled from 'styled-components/native';
-import { LinearGradient } from 'expo';
+import LinearGradient from 'react-native-linear-gradient';
 
 const View = styled.View``;
 
@@ -24,11 +22,11 @@ const AnimatedLinearCoverLeft = Animated.createAnimatedComponent(
   LinearGradient,
 );
 
-type Props = {
-  linear: Array<string>,
-  locations: Array<number>,
-  children: React.ReactNode,
-};
+interface Props {
+  linear: string[];
+  locations: number[];
+  children: React.ReactNode;
+}
 
 class MaskView extends React.PureComponent<Props> {
   static defaultProps = {

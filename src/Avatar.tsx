@@ -1,15 +1,16 @@
-// @flow
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable global-require */
-
-import React from 'react';
-import { ImageStyle, ViewStyle } from 'react-native';
+import * as React from 'react';
+import {
+  ImageStyle,
+  ViewStyle,
+  StyleProp,
+  ImageSourcePropType,
+} from 'react-native';
 import styled from 'styled-components/native';
 import boxShadow from './helper/boxShadow';
 
 const AVATAR_SIZE = 37;
 
-const Root = styled.View`
+const Root = styled.View<{ size: number; shadow: boolean }>`
   height: ${props => props.size};
   width: ${props => props.size};
   ${props =>
@@ -19,33 +20,31 @@ const Root = styled.View`
   `};
 `;
 
-const Image = styled.Image`
+const Image = styled.Image<{ size: number }>`
   width: 100%;
   height: 100%;
   border-radius: ${props => props.size / 2};
 `;
 
-export type AvatarProps = {
-  size?: number,
-  src?: string,
-  shadow: boolean,
-  wrapperStyle?: ViewStyle,
-  imageStyle?: ImageStyle,
-};
+export interface AvatarProps {
+  size?: number;
+  src?: ImageSourcePropType;
+  shadow?: boolean;
+  wrapperStyle?: StyleProp<ViewStyle>;
+  imageStyle?: StyleProp<ImageStyle>;
+}
 
-const Avatar = ({
+const Avatar: React.SFC<AvatarProps> = ({
   size = AVATAR_SIZE,
   src = null,
   shadow = false,
   wrapperStyle,
   imageStyle,
   ...props
-}: AvatarProps) => (
+}) => (
   <Root shadow={shadow} size={size} style={wrapperStyle} {...props}>
     <Image
-      source={
-        src ? { uri: src } : require('../assets/avatar-alien.png')
-      }
+      source={src ? src : require('../assets/avatar-alien.png')}
       size={size}
       style={imageStyle}
     />

@@ -1,15 +1,13 @@
-// @flow
-/* eslint-disable import/no-extraneous-dependencies */
 import * as React from 'react';
 import styled from 'styled-components/native';
 import { MaskedViewIOS } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
-type Props = {
-  linear: Array<string>,
-  locations: Array<number>,
-  children: React.ReactNode,
-};
+interface Props {
+  linear: string[];
+  locations: number[];
+  children: React.ReactNode;
+}
 
 const LinearCover = styled(LinearGradient)`
   flex: 1;

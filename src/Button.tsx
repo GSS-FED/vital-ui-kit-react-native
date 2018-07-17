@@ -1,9 +1,11 @@
-// @flow
-/* eslint-disable import/no-extraneous-dependencies */
 import * as React from 'react';
+import { TouchableOpacityProps } from 'react-native';
 import styled from 'styled-components/native';
 
-const Root = styled.TouchableOpacity`
+const Root = styled.TouchableOpacity<{
+  height?: string | number;
+  active?: boolean;
+}>`
   padding-left: 13;
   padding-right: 13;
   height: ${props => props.height || 'auto'};
@@ -16,25 +18,25 @@ const Root = styled.TouchableOpacity`
   border-color: #fff;
 `;
 
-const Text = styled.Text`
+const Text = styled.Text<{ active?: boolean }>`
   color: ${props => (props.active ? '#fff' : props.theme.tintColor)};
   font-size: 16;
 `;
 
 export type ButtonProps = {
-  title: string,
-  active?: boolean,
-  onPress: () => void,
-};
+  active?: boolean;
+  height?: number | string;
+} & TouchableOpacityProps;
 
-const Button = ({
-  title,
+const Button: React.SFC<ButtonProps> = ({
   active,
   onPress,
+  height,
+  children,
   ...props
-}: ButtonProps) => (
-  <Root active={active} onPress={onPress} {...props}>
-    <Text active={active}>{title}</Text>
+}) => (
+  <Root active={active} onPress={onPress} height={height} {...props}>
+    <Text active={active}>{children}</Text>
   </Root>
 );
 

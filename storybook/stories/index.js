@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
-import React from 'react';
+import * as React from 'react';
 
 import { storiesOf } from '@storybook/react-native';
 import { action } from '@storybook/addon-actions';

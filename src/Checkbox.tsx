@@ -1,5 +1,3 @@
-// @flow
-/* eslint-disable import/no-extraneous-dependencies */
 import * as React from 'react';
 import { TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
@@ -11,7 +9,7 @@ const Root = styled.View`
   align-items: center;
 `;
 
-const Box = styled.View`
+const Box = styled.View<{ size: number }>`
   width: ${props => props.size || 16};
   height: ${props => props.size || 16};
   border-radius: 3;
@@ -25,17 +23,20 @@ const Check = styled(Icon)`
   left: 2;
 `;
 
-export type CheckboxProps = {
-  checked: boolean,
-  size: number,
-  onChange?: (checked: boolean) => {},
-};
+export interface CheckboxProps {
+  checked: boolean;
+  size: number;
+  onChange?: (checked: boolean) => void;
+}
 
-export type CheckboxState = {
-  checked: boolean,
-};
+export interface CheckboxState {
+  checked: boolean;
+}
 
-class Checkbox extends React.Component<CheckboxProps, CheckboxState> {
+class Checkbox extends React.PureComponent<
+  CheckboxProps,
+  CheckboxState
+> {
   static defaultProps = {
     checked: false,
     size: 16,
@@ -44,7 +45,7 @@ class Checkbox extends React.Component<CheckboxProps, CheckboxState> {
     checked: this.props.checked,
   };
 
-  componentWillReceiveProps(nextProps: P) {
+  componentWillReceiveProps(nextProps: CheckboxProps) {
     this.setState({
       checked: nextProps.checked,
     });
@@ -62,7 +63,7 @@ class Checkbox extends React.Component<CheckboxProps, CheckboxState> {
   render() {
     return (
       <TouchableOpacity onPress={this.onToggle}>
-        <Root checked={this.state.checked}>
+        <Root>
           <Box size={this.props.size}>
             {this.state.checked && (
               <Check

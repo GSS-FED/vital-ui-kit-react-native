@@ -1,7 +1,11 @@
-// @flow
-/* eslint-disable import/no-extraneous-dependencies */
 import * as React from 'react';
-import { Dimensions, Animated, TextStyle } from 'react-native';
+import {
+  Dimensions,
+  Animated,
+  TextStyle,
+  ViewProps,
+  ScrollViewProps,
+} from 'react-native';
 import styled from 'styled-components/native';
 
 const Header = styled.View`
@@ -21,27 +25,29 @@ const AvatarView = styled.View`
   bottom: 18;
 `;
 
-export type LargeHeaderProps = {
-  children: (onScroll: () => void) => React.ReactNode,
-  title: string,
-  titleStyle?: TextStyle,
-  avatar?: React.ReactNode,
-};
+export interface LargeHeaderProps {
+  children: (
+    onScroll: ScrollViewProps['onScroll'],
+  ) => React.ReactNode;
+  title: string;
+  titleStyle?: TextStyle;
+  avatar?: React.ReactNode;
+}
 
-export type LargeHeaderState = {
-  scrollOffset: Animated.Value,
-  titleWidth: number,
-};
+export interface LargeHeaderState {
+  scrollOffset: Animated.Value;
+  titleWidth: number;
+}
 
 class LargeHeader extends React.Component<
   LargeHeaderProps,
-  LargeHeaderState,
+  LargeHeaderState
 > {
   state = {
     scrollOffset: new Animated.Value(0),
     titleWidth: 0,
   };
-  // eslint-disable-next-line
+
   offset: number = 0;
 
   componentDidMount() {
@@ -50,10 +56,13 @@ class LargeHeader extends React.Component<
     });
   }
 
-  onScroll = (e: any) => {
-    const scrollSensitivity = 4 / 3;
-    const offset = e.nativeEvent.contentOffset.y / scrollSensitivity;
-    this.state.scrollOffset.setValue(offset);
+  onScroll: ScrollViewProps['onScroll'] = e => {
+    if (e) {
+      const scrollSensitivity = 4 / 3;
+      const offset =
+        e.nativeEvent.contentOffset.y / scrollSensitivity;
+      this.state.scrollOffset.setValue(offset);
+    }
   };
 
   render() {
@@ -69,7 +78,6 @@ class LargeHeader extends React.Component<
         <AnimatedHeader
           style={[
             {
-              // paddingHorizontal: screenWidth * 0.05,
               width: screenWidth,
               height: headerHeight,
             },
@@ -79,12 +87,7 @@ class LargeHeader extends React.Component<
             <AvatarView>{this.props.avatar}</AvatarView>
           )}
           <Animated.Text
-            onLayout={e => {
-              if (this.offset === 0 && this.state.titleWidth === 0) {
-                const titleWidth = e.nativeEvent.layout.width;
-                this.setState({ titleWidth });
-              }
-            }}
+            onLayout={this.onTextLayout}
             style={{
               color: '#808999',
               fontSize: scrollOffset.interpolate({
@@ -102,6 +105,13 @@ class LargeHeader extends React.Component<
       </React.Fragment>
     );
   }
+
+  private onTextLayout: ViewProps['onLayout'] = e => {
+    if (this.offset === 0 && this.state.titleWidth === 0) {
+      const titleWidth = e.nativeEvent.layout.width;
+      this.setState({ titleWidth });
+    }
+  };
 }
 
 export default LargeHeader;

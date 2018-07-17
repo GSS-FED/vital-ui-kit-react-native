@@ -1,34 +1,48 @@
 {
-  "name": "@gssfed/vital-ui-kit-native",
-  "version": "0.0.9",
+  "name": "@vital-ui/native",
+  "version": "0.1.0",
   "private": false,
-  "main": "./src/index.js",
-  "typings": "./src/index.d.ts",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "storybook": "storybook start -p 7007"
+    "storybook": "storybook start -p 7007",
+    "format": "prettier --write '**/**.{ts,tsx}'",
+    "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}' --fix"
   },
   "peerDependencies": {
-    "polished": "^1.9.2",
-    "react-native-linear-gradient": "^2.4.0",
-    "react-native-vector-icons": "^4.0.0",
-    "styled-components": "^3.0.0"
+    "react-native": ">=0.50.0",
+    "react-native-linear-gradient": ">=2",
+    "react-native-vector-icons": ">=4",
+    "styled-components": ">=3"
   },
+  "dependencies": {
+    "polished": "^1.9.2",
+    "prop-types": "15.6.1"
+  },
+  "license": "MIT",
   "devDependencies": {
     "@storybook/addon-actions": "3.4.6",
     "@storybook/addon-links": "3.4.6",
     "@storybook/react-native": "3.4.6",
+    "@types/react": "^16.4.6",
+    "@types/react-native": "^0.56.2",
+    "@types/react-native-vector-icons": "^4.6.1",
+    "awesome-typescript-loader": "^5.2.0",
     "babel-preset-react-native": "4.0.0",
-    "polished": "1.9.2",
-    "prop-types": "15.6.1",
+    "prettier": "^1.13.7",
     "react": "16.4.0",
     "react-dom": "16.4.0",
     "react-native": "0.55.3",
     "react-native-linear-gradient": "2.4.0",
     "react-native-vector-icons": "4.6.0",
     "react-test-renderer": "16.4.0",
-    "styled-components": "3.3.2"
+    "styled-components": "3.3.2",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.13.0",
+    "tslint-react": "^3.6.0",
+    "typescript": "^2.9.2"
   },
   "jest": {
     "preset": "react-native"

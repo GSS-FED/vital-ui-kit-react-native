@@ -1,5 +1,4 @@
 import Button from './Button';
-import Box from './Box';
 import Card from './Card';
 import Avatar from './Avatar';
 import Badge from './Badge';
@@ -9,11 +8,11 @@ import LargeHeader from './LargeHeader';
 import ListSpacer from './ListSpacer';
 import PressOutside from './PressOutside';
 import Pill from './Pills';
-import { Theme, ThemeProvider } from './Theme/';
+import { Theme, ThemeProvider } from './Theme';
+import LargeButton from './LargeButton';
 
 export {
   Avatar,
-  Box,
   Badge,
   Button,
   Checkbox,
@@ -22,6 +21,7 @@ export {
   Card,
   Pill,
   ImageBackground,
+  LargeButton,
   LargeHeader,
   ListSpacer,
   PressOutside,

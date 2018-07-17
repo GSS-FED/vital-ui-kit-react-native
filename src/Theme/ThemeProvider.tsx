@@ -5,10 +5,14 @@ import * as React from 'react';
 import { ThemeProvider as Provider } from 'styled-components/native';
 import defaultTheme from './theme';
 
-export type Props = {
-  theme?: any,
-  children: React.ReactNode,
-};
+type Theme<T> = {
+  [index: string]: any;
+} & T;
+
+export interface Props {
+  theme?: Theme<typeof defaultTheme>;
+  children: React.ReactNode;
+}
 
 class ThemeProvider extends React.Component<Props> {
   state = {};
