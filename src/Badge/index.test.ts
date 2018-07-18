@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { create as renderer } from 'react-test-renderer';
 import * as createContext from 'react-cosmos-test/generic';
 import fixture from './index.fixture';

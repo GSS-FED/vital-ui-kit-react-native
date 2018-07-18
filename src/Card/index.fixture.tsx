@@ -11,6 +11,7 @@ export default {
     children: (
       <React.Fragment>
         <Card.Header title="header" />
+        // @ts-ignore
         <Card.SideLabel color={theme.blue} />
       </React.Fragment>
     ),

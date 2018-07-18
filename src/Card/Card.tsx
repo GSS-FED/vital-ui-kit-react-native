@@ -43,7 +43,7 @@ class Card extends React.PureComponent<CardProps> {
   render() {
     const { children, shadow, ...props } = this.props;
     return (
-      <Root {...props} shadow={shadow}>
+      <Root {...props} shadow={shadow || false}>
         {children}
       </Root>
     );

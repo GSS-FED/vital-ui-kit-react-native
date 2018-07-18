@@ -6,7 +6,7 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "jsx": "react",
-    "target": "es5",
+    "target": "es6",
     "lib": ["es2015", "dom"],
     "module": "esnext",
     "importHelpers": true,
@@ -30,6 +30,8 @@
     "node_modules",
     "dist",
     "**/*.text.ts",
-    "**/*.fixture.ts"
+    "**/*.fixture.ts",
+    "**/*.text.tsx",
+    "**/*.fixture.tsx"
   ]
 }
