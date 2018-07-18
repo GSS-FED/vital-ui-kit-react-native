@@ -1,36 +1,73 @@
 {
-  "name": "@gssfed/vital-ui-kit-native",
-  "version": "0.0.9",
-  "private": false,
-  "main": "./src/index.js",
-  "typings": "./src/index.d.ts",
+  "name": "@vital-ui/native",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "storybook": "storybook start -p 7007"
+    "cosmos-native": "cosmos-native",
+    "build": "tsc"
   },
   "peerDependencies": {
-    "polished": "^1.9.2",
-    "react-native-linear-gradient": "^2.4.0",
-    "react-native-vector-icons": "^4.0.0",
-    "styled-components": "^3.0.0"
+    "react-native-linear-gradient": ">2.0.0",
+    "react-native-vector-icons": ">4.0.0"
+  },
+  "dependencies": {
+    "tslib": "^1.9.3",
+    "polished": "^1.9.3"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "3.4.6",
-    "@storybook/addon-links": "3.4.6",
-    "@storybook/react-native": "3.4.6",
-    "babel-preset-react-native": "4.0.0",
-    "polished": "1.9.2",
-    "prop-types": "15.6.1",
-    "react": "16.4.0",
-    "react-dom": "16.4.0",
-    "react-native": "0.55.3",
-    "react-native-linear-gradient": "2.4.0",
-    "react-native-vector-icons": "4.6.0",
-    "react-test-renderer": "16.4.0",
-    "styled-components": "3.3.2"
+    "@types/jest": "^23.3.0",
+    "@types/react": "^16.4.6",
+    "@types/react-native": "^0.56.3",
+    "@types/react-native-vector-icons": "^4.6.1",
+    "@types/react-test-renderer": "^16.0.1",
+    "babel-core": "^7.0.0-0",
+    "babel-jest": "23.4.0",
+    "babel-preset-react-native": "^5",
+    "jest": "23.4.1",
+    "prettier": "^1.13.7",
+    "react": "16.4.1",
+    "react-cosmos": "^4.6.0-3",
+    "react-cosmos-test": "^4.6.0-3",
+    "react-native": "0.56.0",
+    "react-native-linear-gradient": "^2.4.0",
+    "react-native-typescript-transformer": "^1.2.10",
+    "react-native-vector-icons": "^4.6.0",
+    "react-test-renderer": "16.4.1",
+    "styled-components": "^3.3.3",
+    "ts-jest": "^23.0.1",
+    "tslint-config-prettier": "^1.13.0",
+    "tslint-react": "^3.6.0",
+    "typescript": "^2.9.2"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "ios.ts",
+      "ios.tsx",
+      "android.ts",
+      "android.tsx"
+    ],
+    "transform": {
+      "^.+\\.(js)$": "<rootDir>/node_modules/babel-jest",
+      "\\.(ts|tsx)$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "testPathIgnorePatterns": [
+      "\\.snap$",
+      "<rootDir>/node_modules/"
+    ],
+    "cacheDirectory": ".jest/cache",
+    "globals": {
+      "ts-jest": {
+        "useBabelrc": true
+      }
+    }
   }
 }

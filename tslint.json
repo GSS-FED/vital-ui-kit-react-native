@@ -1,0 +1,27 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:latest", "tslint-react", "tslint-config-prettier"],
+  "jsRules": {},
+  "rules": {
+    "interface-name" : [true, "never-prefix"],
+    "jsx-boolean-value": false,
+    "jsx-no-lambda": false,
+    "no-submodule-imports": false,
+    "ordered-imports": false,
+    "no-implicit-dependencies": false,
+    "object-literal-sort-keys": false,
+    "max-classes-per-file": false,
+    "interface-over-type-literal": true,
+    "no-console": false,
+    "no-empty": false,
+    "member-access": [true, "no-public"]
+  },
+  "rulesDirectory": [],
+  "linterOptions": {
+    "exclude": [
+        "bin",
+        "node_modules/**",
+        "**/node_modules/**"
+    ]
+  }
+}

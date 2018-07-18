@@ -1,5 +1,11 @@
-ios/
-android/
+# Build
+dist
+
+# cosmos
+cosmos.modules.js
+
+# jest
+.jest/
 
 # OSX
 #
