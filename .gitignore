@@ -1,5 +1,8 @@
-ios/
-android/
+# cosmos
+cosmos.modules.js
+
+# jest
+.jest/
 
 # OSX
 #

@@ -1,4 +1,4 @@
-import { Props as CardProps } from './Card';
+import { CardProps } from './Card';
 import { CardHeaderProps } from './CardHeader';
 import { CardSideLabelProps } from './CardSideLabel';
 

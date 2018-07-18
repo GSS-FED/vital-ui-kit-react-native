@@ -3,24 +3,25 @@ import { View, ViewProps } from 'react-native';
 
 export type PillsGroupProps = {
   children: React.ReactNode;
+  marginBetween: number;
 } & ViewProps;
 
 const PillsGroup: React.SFC<PillsGroupProps> = ({
-  marginHorizontal = 6,
+  marginBetween = 6,
   children,
   ...props
 }) => (
   <View
     flexDirection="row"
-    marginHorizontal={marginHorizontal}
     {...props}
   >
     {React.Children.map(children, child => {
       if (typeof child === 'string' || typeof child === 'number') {
         return child;
       }
+      // FIXME: not passing down
       return React.cloneElement(child, {
-        style: { marginRight: marginHorizontal },
+        marginHorizontal: marginBetween,
       });
     })}
   </View>

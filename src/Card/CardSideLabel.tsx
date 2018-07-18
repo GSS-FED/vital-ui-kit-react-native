@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { StyledComponentClass } from 'styled-components';
 import styled from 'styled-components/native';
 import { ViewProps } from '../../node_modules/@types/react-native';
@@ -9,7 +8,7 @@ export interface CardSideLabelProps {
 
 const CardSideLabel: StyledComponentClass<
   ViewProps,
-  any,
+  CardSideLabelProps,
   ViewProps
 > = styled.View`
   position: absolute;

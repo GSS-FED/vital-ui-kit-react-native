@@ -2,6 +2,8 @@ import * as React from 'react';
 import { TextStyle, StyleProp } from 'react-native';
 import styled from 'styled-components/native';
 
+import defaultTheme from '../theme/theme';
+
 const Root = styled.View`
   flex-direction: row;
   justify-content: space-between;
@@ -15,6 +17,10 @@ const Title = styled.Text`
   font-size: ${props => props.theme.font.headline.fontSize};
   font-weight: ${props => props.theme.font.headline.fontWeight};
 `;
+
+Title.defaultProps = {
+  theme: defaultTheme,
+};
 
 export interface CardHeaderProps {
   title: string;

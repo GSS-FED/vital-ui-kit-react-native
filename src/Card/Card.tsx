@@ -22,22 +22,23 @@ const Root = styled.View<RootProps>`
     props.shadow &&
     `
     box-shadow: 0 13px 29px ${
-      props.bg ? rgba(props.bg, 0.5) : 'rgba(64, 63, 81, 0.4)'
+      props.backgroundColor
+        ? rgba(props.backgroundColor, 0.5)
+        : 'rgba(64, 63, 81, 0.4)'
     }
   `};
 `;
 
 export interface CardProps extends ViewProps {
-  children: React.ReactNode;
   shadow?: boolean;
 }
 
-class Card extends React.PureComponent {
+class Card extends React.PureComponent<CardProps> {
   static defaultProps = {
     shadow: false,
   };
-  SideLabel = CardSideLabel;
-  Header = CardHeader;
+  static SideLabel = CardSideLabel;
+  static Header = CardHeader;
 
   render() {
     const { children, shadow, ...props } = this.props;

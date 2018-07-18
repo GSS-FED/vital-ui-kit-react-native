@@ -17,17 +17,16 @@ const Label = styled.Text<{ color?: string }>`
 
 export type PillProps = {
   label: string;
-  bg?: string;
   color?: string;
 } & ViewProps;
 
 class Pill extends React.PureComponent<PillProps> {
-  Group = PillGroup;
+  static Group = PillGroup;
   render() {
-    const { backgroundColor, color, children, ...props } = this.props;
+    const { backgroundColor, color, label, marginHorizontal, ...props } = this.props;
     return (
       <Root backgroundColor={backgroundColor} {...props}>
-        <Label color={color}>{children}</Label>
+        <Label color={color}>{label}</Label>
       </Root>
     );
   }
