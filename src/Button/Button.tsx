@@ -2,8 +2,6 @@ import * as React from 'react';
 import { TouchableOpacityProps } from 'react-native';
 import styled from 'styled-components/native';
 
-import defaultTheme from '../theme/theme';
-
 const Root = styled.TouchableOpacity<{
   height?: string | number;
   active?: boolean;
@@ -24,10 +22,6 @@ const Text = styled.Text<{ active?: boolean; }>`
   color: ${props => (props.active ? '#fff' : props.theme.tintColor)};
   font-size: 16;
 `;
-
-Text.defaultProps = {
-  theme: defaultTheme,
-};
 
 export type ButtonProps = {
   active?: boolean;
