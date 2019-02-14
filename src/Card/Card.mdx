@@ -1,0 +1,34 @@
+---
+name: Card
+
+---
+
+import { Playground, PropsTable } from 'docz'
+import Card from './Card'
+import { Text } from 'react-native';
+
+# Card
+
+## Basic usage
+
+<Playground>
+  <Card width={300} height={300} shadow>
+    <Card.Header>
+      <Card.SideLabel color="#317DFF" />
+    </Card.Header>
+    <Text>
+      This is a Card
+    </Text>
+  </Card>
+</Playground>
+
+## Properties
+
+## Card
+<PropsTable of={Card} />
+
+## CardHeader
+<PropsTable of={Card.Header} />
+
+## Card SideLabel
+<PropsTable of={Card.SideLabel} />

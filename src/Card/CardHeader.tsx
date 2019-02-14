@@ -1,8 +1,7 @@
 import * as React from 'react';
-import { TextStyle, StyleProp } from 'react-native';
+import { StyleProp, TextStyle } from 'react-native';
 import styled from 'styled-components/native';
 
-import defaultTheme from '../theme/theme';
 
 const Root = styled.View`
   flex-direction: row;
@@ -14,13 +13,9 @@ const Root = styled.View`
 
 const Title = styled.Text`
   color: #808999;
-  font-size: ${props => props.theme.font.headline.fontSize};
-  font-weight: ${props => props.theme.font.headline.fontWeight};
+  font-size: 18;
+  font-weight: 600;
 `;
-
-Title.defaultProps = {
-  theme: defaultTheme,
-};
 
 export interface CardHeaderProps {
   title: string;
