@@ -2,9 +2,12 @@ import * as React from 'react';
 import {
   Dimensions,
   Animated,
+  StyleProp,
   TextStyle,
   ViewProps,
   ScrollViewProps,
+  NativeSyntheticEvent,
+  NativeScrollEvent,
 } from 'react-native';
 import styled from 'styled-components/native';
 
@@ -30,7 +33,7 @@ export interface LargeHeaderProps {
     onScroll: ScrollViewProps['onScroll'],
   ) => React.ReactNode;
   title: string;
-  titleStyle?: TextStyle;
+  titleStyle?: StyleProp<TextStyle>;
   avatar?: React.ReactNode;
 }
 
@@ -56,7 +59,7 @@ class LargeHeader extends React.Component<
     });
   }
 
-  onScroll: ScrollViewProps['onScroll'] = e => {
+  onScroll = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
     if (e) {
       const scrollSensitivity = 4 / 3;
       const offset =
@@ -88,15 +91,17 @@ class LargeHeader extends React.Component<
           )}
           <Animated.Text
             onLayout={this.onTextLayout}
-            style={{
-              color: '#808999',
-              fontSize: scrollOffset.interpolate({
-                inputRange: [0, 200],
-                outputRange: [64, 30],
-                extrapolate: 'clamp',
-              }),
-              ...this.props.titleStyle,
-            }}
+            style={[
+              {
+                color: '#808999',
+                fontSize: scrollOffset.interpolate({
+                  inputRange: [0, 200],
+                  outputRange: [64, 30],
+                  extrapolate: 'clamp',
+                }),
+              },
+              this.props.titleStyle,
+            ]}
           >
             {this.props.title}
           </Animated.Text>

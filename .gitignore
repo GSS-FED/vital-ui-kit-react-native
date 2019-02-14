@@ -1,8 +1,8 @@
 # Build
 dist
 
-# cosmos
-cosmos.modules.js
+# docz
+.docz
 
 # jest
 .jest/

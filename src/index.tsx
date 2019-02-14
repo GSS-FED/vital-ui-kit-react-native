@@ -1,15 +1,15 @@
-import Button from './Button';
+import { Button } from './Button';
 import Card from './Card';
-import Avatar from './Avatar';
-import Badge from './Badge';
-import Checkbox from './Checkbox';
-import ImageBackground from './ImageBackground';
+import { Avatar } from './Avatar';
+import { Badge } from './Badge';
+import { Checkbox } from './Checkbox';
+import { ImageBackground } from './ImageBackground';
 import LargeHeader from './LargeHeader';
 import ListSpacer from './ListSpacer';
 import PressOutside from './PressOutside';
 import Pill from './Pills';
-import { Theme, ThemeProvider } from './Theme';
-import LargeButton from './LargeButton';
+import { Theme, ThemeProvider } from './theme';
+import { LargeButton } from './LargeButton';
 
 export {
   Avatar,

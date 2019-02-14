@@ -1,10 +1,10 @@
 import * as React from 'react';
 import styled from 'styled-components/native';
 import { rgba } from 'polished';
+import { ViewProps } from 'react-native';
 
 import CardSideLabel from './CardSideLabel';
-import CardHeader from './CardHeader';
-import { ViewProps } from '../../node_modules/@types/react-native';
+import CardHeader, { CardHeaderProps } from './CardHeader';
 
 interface RootProps {
   backgroundColor?: string;
@@ -37,8 +37,8 @@ class Card extends React.PureComponent<CardProps> {
   static defaultProps = {
     shadow: false,
   };
-  static SideLabel = CardSideLabel;
-  static Header = CardHeader;
+  static SideLabel: typeof CardSideLabel = CardSideLabel;
+  static Header: React.SFC<CardHeaderProps> = CardHeader;
 
   render() {
     const { children, shadow, ...props } = this.props;
